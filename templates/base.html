@@ -1,0 +1,33 @@
+{% load static %}
+<!doctype html>
+<html>
+  <head>
+    <title>Women Safety Sentiment System</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
+
+  <body>
+    <!-- NAVBAR -->
+    <div class="navbar">
+      <div class="logo">Women Safety Sentiment System</div>
+
+      <div class="nav-links">
+        <a href="/">Home</a>
+
+        {% if user.is_authenticated %}
+        <a href="/predict/">Predict</a>
+        <a href="/analytics/">Analytics</a>
+        <a href="/logout/">Logout</a>
+        {% else %}
+        <a href="/login/">Login</a>
+        <a href="/register/">Register</a>
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- PAGE CONTENT -->
+    {% block content %} {% endblock %}
+
+    <div class="footer">© 2026 Women Safety Sentiment Analysis System</div>
+  </body>
+</html>

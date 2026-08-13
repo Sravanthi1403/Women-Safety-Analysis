@@ -1,0 +1,62 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="predict-container">
+  <div class="predict-card">
+    <h2>Sentiment Prediction</h2>
+
+    <p class="subtitle">
+      Enter a sentence related to women's safety to analyze its sentiment.
+    </p>
+
+    <form method="POST">
+      {% csrf_token %}
+
+      <textarea
+        name="text_input"
+        placeholder="Example: I feel unsafe walking alone at night..."
+        required
+      ></textarea>
+
+      <button type="submit">Analyze Sentiment</button>
+    </form>
+
+    {% if prediction %}
+    <div class="result-box">
+      <h3>Prediction Result</h3>
+      <p class="result-text">{{ prediction }}</p>
+    </div>
+    {% endif %}
+
+    <!-- Example quick inputs -->
+    <!-- <div class="examples">
+      <h4>Try Example Sentences:</h4>
+      <ul>
+        <li
+          onclick="fillExample('Women feel safe in this area during daytime.')"
+        >
+          Positive Example
+        </li>
+        <li
+          onclick="
+            fillExample('There are many harassment cases reported here.')
+          "
+        >
+          Negative Example
+        </li>
+        <li
+          onclick="fillExample('The city has implemented new safety measures.')"
+        >
+          Neutral Example
+        </li>
+      </ul>
+    </div> -->
+  </div>
+</div>
+
+<script>
+  function fillExample(text) {
+    document.querySelector("textarea").value = text;
+  }
+</script>
+
+{% endblock %}

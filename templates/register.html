@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Register</title>
+
+    <style>
+      body {
+        font-family: Arial;
+        background: linear-gradient(to right, #0f172a, #1a237e);
+      }
+
+      .container {
+        width: 400px;
+        margin: 120px auto;
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      }
+
+      h2 {
+        text-align: center;
+      }
+
+      /* INPUT */
+      input {
+        width: 95%;
+        padding: 12px;
+        margin: 10px 0;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        font-size: 15px;
+        transition: 0.3s;
+      }
+
+      input:focus {
+        outline: none;
+        border-color: #0f172a;
+        box-shadow: 0 0 8px rgba(102, 126, 234, 0.7);
+      }
+
+      /* BUTTON */
+      button {
+        width: 100%;
+        padding: 14px;
+        background: #1f2a45;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-size: 18px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      button:hover {
+        background: #0f172a;
+        transform: scale(1.03);
+      }
+
+      .success {
+        color: green;
+        text-align: center;
+      }
+      .error {
+        color: red;
+        text-align: center;
+      }
+
+      .link {
+        text-align: center;
+        margin-top: 15px;
+      }
+      .link p a {
+        text-decoration: none;
+        color: #5a67d8;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h2>Register</h2>
+
+      {% for message in messages %}
+      <p
+        class="{% if message.tags == 'success' %}success{% else %}error{% endif %}"
+      >
+        {{ message }}
+      </p>
+      {% endfor %}
+
+      <form method="POST">
+        {% csrf_token %}
+
+        <input type="text" name="username" placeholder="Username" required />
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          required
+        />
+
+        <button type="submit">Register</button>
+      </form>
+
+      <div class="link">
+        <p>Already registered ? <a href="/login">Login</a></p>
+      </div>
+    </div>
+  </body>
+</html>

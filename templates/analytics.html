@@ -1,0 +1,68 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<div class="analytics-wrapper">
+  <h2 class="analytics-title">Model Performance Analytics</h2>
+  <p class="analytics-subtitle">
+    Evaluation results of the deployed BiLSTM sentiment classification model.
+  </p>
+
+  <div class="analytics-grid">
+    <!-- Accuracy Curve -->
+    <div class="analytics-card">
+      <h3 class="analytics-card-title">Training vs Validation Accuracy</h3>
+      <img
+        class="analytics-img"
+        src="{% static 'images/bilstm_accuracy_curve.png' %}"
+        alt="Accuracy Curve"
+      />
+      <p class="analytics-description">
+        The increasing accuracy across epochs indicates effective learning and
+        good generalization performance.
+      </p>
+    </div>
+
+    <!-- Loss Curve -->
+    <div class="analytics-card">
+      <h3 class="analytics-card-title">Training vs Validation Loss</h3>
+      <img
+        class="analytics-img"
+        src="{% static 'images/bilstm_loss_curve.png' %}"
+        alt="Loss Curve"
+      />
+      <p class="analytics-description">
+        The decreasing loss trend shows stable convergence and reduced
+        prediction error during training.
+      </p>
+    </div>
+
+    <!-- Confusion Matrix -->
+    <div class="analytics-card">
+      <h3 class="analytics-card-title">Confusion Matrix</h3>
+      <img
+        class="analytics-img"
+        src="{% static 'images/bilstm_confusion_matrix.png' %}"
+        alt="Confusion Matrix"
+      />
+      <p class="analytics-description">
+        Strong diagonal values indicate accurate classification across positive,
+        neutral, and negative sentiments.
+      </p>
+    </div>
+
+    <!-- Sentiment Distribution -->
+    <div class="analytics-card">
+      <h3 class="analytics-card-title">Sentiment Distribution</h3>
+      <img
+        class="analytics-img"
+        src="{% static 'images/sentiment_distribution.png' %}"
+        alt="Sentiment Distribution"
+      />
+      <p class="analytics-description">
+        The distribution reflects real-world emotional trends in women’s safety
+        discussions.
+      </p>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

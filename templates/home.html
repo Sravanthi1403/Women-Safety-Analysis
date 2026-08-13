@@ -1,0 +1,85 @@
+{% extends 'base.html' %} {% block content %}
+
+<!-- HERO SECTION -->
+<div class="hero">
+  <div>
+    <h1>Women's Safety Sentiment Analysis</h1>
+    <p>
+      Understanding public opinion from social media to identify safety concerns
+      and improve protection measures for women.
+    </p>
+
+    {% if user.is_authenticated %}
+    <a href="/predict/" class="btn">Try Sentiment Prediction</a>
+    {% else %}
+    <a href="/login/" class="btn">Get Started</a>
+    {% endif %}
+  </div>
+</div>
+
+<!-- PROBLEM SECTION -->
+<div class="section">
+  <img src="https://images.unsplash.com/photo-1593113630400-ea4288922497" />
+
+  <div class="section-text">
+    <h2>Why Women's Safety Matters</h2>
+
+    <p>
+      Women's safety remains a major global concern. Social media platforms
+      contain public opinions, experiences, and concerns regarding safety
+      incidents. Understanding these sentiments helps identify risk areas and
+      awareness levels.
+    </p>
+
+    <p>
+      Analyzing public perception helps organizations take preventive actions
+      and improve safety policies.
+    </p>
+  </div>
+</div>
+
+<!-- PURPOSE SECTION -->
+<div class="section">
+  <div class="section-text">
+    <h2>Purpose of Sentiment Analysis</h2>
+
+    <p>
+      Sentiment analysis classifies text into positive, negative, or neutral
+      opinions. It helps understand public emotions and detect concerns related
+      to women's safety.
+    </p>
+
+    <p>
+      The system uses Natural Language Processing and Deep Learning to analyze
+      large volumes of social media data and provide meaningful insights.
+    </p>
+  </div>
+
+  <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71" />
+</div>
+
+<!-- HOW SYSTEM HELPS -->
+<div class="cards">
+  <div class="card">
+    <h3>Detect Public Sentiment</h3>
+    <p>
+      Identifies positive, negative, and neutral opinions from social media
+      discussions.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>Identify Safety Concerns</h3>
+    <p>
+      Helps detect unsafe conditions and public concerns related to women's
+      safety.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>Support Decision Making</h3>
+    <p>Provides data-driven insights for authorities and organizations.</p>
+  </div>
+</div>
+
+{% endblock %}
